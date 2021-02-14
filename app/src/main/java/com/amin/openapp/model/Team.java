@@ -1,8 +1,11 @@
 package com.amin.openapp.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Team {
     public Team(String name, int played, int win, int draw, int loss, int goalsFor, int goalsAgainst, int points) {
-        this.name = name;
+        this.team = name;
         this.played = played;
         this.win = win;
         this.draw = draw;
@@ -13,11 +16,11 @@ public class Team {
     }
 
     public String getName() {
-        return name;
+        return team;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.team = name;
     }
 
     public int getPlayed() {
@@ -76,12 +79,28 @@ public class Team {
         this.points = points;
     }
 
-    private String name;
-    private int played;
-    private int win;
-    private int draw;
-    private int loss;
-    private int goalsFor;
-    private int goalsAgainst;
-    private int points;
+    @SerializedName("team")
+    @Expose
+    private String team;
+    @SerializedName("played")
+    @Expose
+    private Integer played;
+    @SerializedName("win")
+    @Expose
+    private Integer win;
+    @SerializedName("draw")
+    @Expose
+    private Integer draw;
+    @SerializedName("loss")
+    @Expose
+    private Integer loss;
+    @SerializedName("goalsFor")
+    @Expose
+    private Integer goalsFor;
+    @SerializedName("goalsAgainst")
+    @Expose
+    private Integer goalsAgainst;
+    @SerializedName("points")
+    @Expose
+    private Integer points;
 }
