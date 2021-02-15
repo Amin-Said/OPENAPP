@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Team {
-    public Team(String name, int played, int win, int draw, int loss, int goalsFor, int goalsAgainst, int points) {
+    public Team(String name, int played, int win, int draw, int loss, int goalsFor, int goalsAgainst, int points,int record) {
         this.team = name;
         this.played = played;
         this.win = win;
@@ -13,6 +13,7 @@ public class Team {
         this.goalsFor = goalsFor;
         this.goalsAgainst = goalsAgainst;
         this.points = points;
+        this.record = record;
     }
 
     public String getName() {
@@ -103,4 +104,14 @@ public class Team {
     @SerializedName("points")
     @Expose
     private Integer points;
+
+    public Integer getRecord() {
+        return record;
+    }
+
+    public void setRecord(Integer record) {
+        this.record = record;
+    }
+
+    private Integer record;
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+    <dimen name="space_between_team_statistics">32dp</dimen>
+    <dimen name="space_from_borders">8dp</dimen>
+    <dimen name="card_view_margin">5dp</dimen>
+    <dimen name="card_corner_radius">4dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+
+    <!--    font sizes-->
+    <dimen name="progress_text_size">56sp</dimen>
+
+</resources>

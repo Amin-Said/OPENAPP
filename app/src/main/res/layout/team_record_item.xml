@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="team"
+            type="com.amin.openapp.model.Team"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_view_margin"
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        card_view:cardElevation="@dimen/card_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/constraintLayout">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.6" />
+
+            <TextView
+                android:id="@+id/teamRecordTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_from_borders"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:text="@{`#` + Integer.toString(team.record)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/teamNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_from_borders"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:text="@{team.name}"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/teamRecordTV"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ptsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:layout_marginEnd="@dimen/space_from_borders"
+                android:text="@string/points_title"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/gdTV"
+                app:layout_constraintTop_toBottomOf="@+id/teamNameTV" />
+
+            <TextView
+                android:id="@+id/ptsValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:layout_marginBottom="@dimen/space_from_borders"
+                android:text="@{Integer.toString(team.points)}"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/ptsTV"
+                app:layout_constraintStart_toStartOf="@+id/ptsTV"
+                app:layout_constraintTop_toBottomOf="@+id/ptsTV" />
+
+            <TextView
+                android:id="@+id/mpTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_from_borders"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:text="@string/mp_title"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/teamRecordTV" />
+
+            <TextView
+                android:id="@+id/mpValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:layout_marginBottom="@dimen/space_from_borders"
+                android:text="@{Integer.toString(team.played)}"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/mpTV"
+                app:layout_constraintStart_toStartOf="@+id/mpTV"
+                app:layout_constraintTop_toBottomOf="@+id/mpTV" />
+
+            <TextView
+                android:id="@+id/winTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_between_team_statistics"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:text="@string/win_title"
+                android:textColor="@color/blue"
+                app:layout_constraintStart_toEndOf="@+id/mpTV"
+                app:layout_constraintTop_toBottomOf="@+id/teamNameTV" />
+
+            <TextView
+                android:id="@+id/winValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:layout_marginBottom="@dimen/space_from_borders"
+                android:text="@{Integer.toString(team.win)}"
+                android:textColor="@color/blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/winTV"
+                app:layout_constraintStart_toStartOf="@+id/winTV"
+                app:layout_constraintTop_toBottomOf="@+id/winTV" />
+
+            <TextView
+                android:id="@+id/drawTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_between_team_statistics"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:text="@string/draw_title"
+                android:textColor="@color/yellow"
+                app:layout_constraintStart_toEndOf="@+id/winTV"
+                app:layout_constraintTop_toBottomOf="@+id/teamNameTV" />
+
+            <TextView
+                android:id="@+id/drawValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:layout_marginBottom="@dimen/space_from_borders"
+                android:text="@{Integer.toString(team.draw)}"
+                android:textColor="@color/yellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/drawTV"
+                app:layout_constraintStart_toStartOf="@+id/drawTV"
+                app:layout_constraintTop_toBottomOf="@+id/drawTV" />
+
+            <TextView
+                android:id="@+id/loseTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_between_team_statistics"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:text="@string/lose_title"
+                android:textColor="@color/red"
+                app:layout_constraintStart_toEndOf="@+id/drawTV"
+                app:layout_constraintTop_toBottomOf="@+id/teamNameTV" />
+
+            <TextView
+                android:id="@+id/loseValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:layout_marginBottom="@dimen/space_from_borders"
+                android:text="@{Integer.toString(team.loss)}"
+                android:textColor="@color/red"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/loseTV"
+                app:layout_constraintStart_toStartOf="@+id/loseTV"
+                app:layout_constraintTop_toBottomOf="@+id/loseTV" />
+
+            <TextView
+                android:id="@+id/gfTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_between_team_statistics"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:text="@string/goals_for_title"
+                android:textColor="@color/green"
+                app:layout_constraintStart_toEndOf="@+id/loseTV"
+                app:layout_constraintTop_toBottomOf="@+id/teamNameTV" />
+
+            <TextView
+                android:id="@+id/gfValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:layout_marginBottom="@dimen/space_from_borders"
+                android:text="@{Integer.toString(team.goalsFor)}"
+                android:textColor="@color/green"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/gfTV"
+                app:layout_constraintStart_toStartOf="@+id/gfTV"
+                app:layout_constraintTop_toBottomOf="@+id/gfTV" />
+
+            <TextView
+                android:id="@+id/gaTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_between_team_statistics"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:text="@string/goals_against_title"
+                android:textColor="@color/pink"
+                app:layout_constraintStart_toEndOf="@+id/gfTV"
+                app:layout_constraintTop_toBottomOf="@+id/teamNameTV" />
+
+            <TextView
+                android:id="@+id/gaValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:layout_marginBottom="@dimen/space_from_borders"
+                android:text="@{Integer.toString(team.goalsAgainst)}"
+                android:textColor="@color/pink"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/gaTV"
+                app:layout_constraintStart_toStartOf="@+id/gaTV"
+                app:layout_constraintTop_toBottomOf="@+id/gaTV" />
+
+            <TextView
+                android:id="@+id/gdTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_between_team_statistics"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:text="@string/goals_count_title"
+                android:textColor="@color/orange"
+                app:layout_constraintStart_toEndOf="@+id/gaTV"
+                app:layout_constraintTop_toBottomOf="@+id/teamNameTV" />
+
+            <TextView
+                android:id="@+id/gdValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_from_borders"
+                android:layout_marginBottom="@dimen/space_from_borders"
+                android:text="@{Integer.toString(team.goalsFor-team.goalsAgainst)}"
+                android:textColor="@color/orange"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/gdTV"
+                app:layout_constraintStart_toStartOf="@+id/gdTV"
+                app:layout_constraintTop_toBottomOf="@+id/gdTV" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
