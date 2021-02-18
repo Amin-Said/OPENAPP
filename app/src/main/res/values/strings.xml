@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Premier League</string>
-
+    <string name="fav_title">Favourite Teams</string>
     <string name="mp_title">MP</string>
     <string name="win_title">W</string>
     <string name="draw_title">D</string>
@@ -9,4 +9,6 @@
     <string name="goals_against_title">GA</string>
     <string name="goals_count_title">GD</string>
     <string name="points_title">Pts</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

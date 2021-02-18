@@ -1,11 +1,16 @@
 package com.amin.openapp.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "fav_team")
 public class Team {
-    public Team(String name, int played, int win, int draw, int loss, int goalsFor, int goalsAgainst, int points,int record) {
-        this.team = name;
+
+    public Team(String team, int played, int win, int draw, int loss, int goalsFor, int goalsAgainst, int points, int record, int id) {
+        this.team = team;
         this.played = played;
         this.win = win;
         this.draw = draw;
@@ -14,15 +19,36 @@ public class Team {
         this.goalsAgainst = goalsAgainst;
         this.points = points;
         this.record = record;
+        this.id = id;
     }
 
-    public String getName() {
-        return team;
-    }
-
-    public void setName(String name) {
-        this.team = name;
-    }
+    @SerializedName("team")
+    @Expose
+    private String team;
+    @SerializedName("played")
+    @Expose
+    private int played;
+    @SerializedName("win")
+    @Expose
+    private int win;
+    @SerializedName("draw")
+    @Expose
+    private int draw;
+    @SerializedName("loss")
+    @Expose
+    private int loss;
+    @SerializedName("goalsFor")
+    @Expose
+    private int goalsFor;
+    @SerializedName("goalsAgainst")
+    @Expose
+    private int goalsAgainst;
+    @SerializedName("points")
+    @Expose
+    private int points;
+    @PrimaryKey
+    private int record;
+    private int id;
 
     public int getPlayed() {
         return played;
@@ -80,38 +106,29 @@ public class Team {
         this.points = points;
     }
 
-    @SerializedName("team")
-    @Expose
-    private String team;
-    @SerializedName("played")
-    @Expose
-    private Integer played;
-    @SerializedName("win")
-    @Expose
-    private Integer win;
-    @SerializedName("draw")
-    @Expose
-    private Integer draw;
-    @SerializedName("loss")
-    @Expose
-    private Integer loss;
-    @SerializedName("goalsFor")
-    @Expose
-    private Integer goalsFor;
-    @SerializedName("goalsAgainst")
-    @Expose
-    private Integer goalsAgainst;
-    @SerializedName("points")
-    @Expose
-    private Integer points;
+    public String getTeam() {
+        return team;
+    }
 
-    public Integer getRecord() {
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public int getRecord() {
         return record;
     }
 
-    public void setRecord(Integer record) {
+    public void setRecord(int record) {
         this.record = record;
     }
 
-    private Integer record;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 }

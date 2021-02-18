@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_from_borders"
                 android:layout_marginTop="@dimen/space_from_borders"
-                android:text="@{team.name}"
+                android:text="@{team.team}"
                 android:textColor="@color/blue"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/teamRecordTV"

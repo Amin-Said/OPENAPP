@@ -1,11 +1,8 @@
 package com.amin.openapp.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -22,6 +19,7 @@ public class TeamRecordsAdapter extends RecyclerView.Adapter<TeamRecordsAdapter.
     ArrayList<Team> itemsList = new ArrayList<>();
     Context context;
     String TAG = "TeamRecordsAdapter" ;
+    String from;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TeamRecordItemBinding teamRecordItemBinding;
@@ -38,8 +36,9 @@ public class TeamRecordsAdapter extends RecyclerView.Adapter<TeamRecordsAdapter.
         this.context = context;
     }
 
-    public TeamRecordsAdapter( Context context) {
+    public TeamRecordsAdapter( Context context,String from) {
         this.context = context;
+        this.from = from;
     }
     @Override
     public TeamRecordsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
@@ -53,7 +52,9 @@ public class TeamRecordsAdapter extends RecyclerView.Adapter<TeamRecordsAdapter.
     public void onBindViewHolder(TeamRecordsAdapter.ViewHolder holder, int position) {
 
         final Team model = itemsList.get(position);
-        model.setRecord(position+1);
+        if (from.equals("main")){
+            model.setRecord(position+1);
+        }
 
         // set values to views
         holder.teamRecordItemBinding.setTeam(model);
@@ -63,6 +64,11 @@ public class TeamRecordsAdapter extends RecyclerView.Adapter<TeamRecordsAdapter.
     public void setList(ArrayList<Team> list){
         this.itemsList = list;
         notifyDataSetChanged();
+    }
+
+
+    public Team getTeamAt(int position){
+        return itemsList.get(position);
     }
 
     @Override
